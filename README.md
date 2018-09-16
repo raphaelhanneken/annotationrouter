@@ -38,4 +38,4 @@ switch ($routeInfo[0]) {
         break;
 }
 ```
-It is recommended to only use the AnnotationRouter with a cachedDispatcher since it is relatively expensive to parse the doc comments for route definitions.
+It is recommended to use the AnnotationRouter only with a cachedDispatcher, since it is relatively expensive to parse the doc comments for route definitions.
