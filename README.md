@@ -5,11 +5,14 @@ A wrapper for nikic/fast-route which automatically generates routes from annotat
 ```php
 <?php
 
-$dispatcher = FastRoute\simpleDispatcher(function(\AnnotationRoute\RouteCollector $collector) {
+$dispatcher = FastRoute\cachedDispatcher(function(\AnnotationRoute\RouteCollector $collector) {
     $collector
         ->addRoutesForClass('Some\\Fully\\Qualified\\Classname')
         ->addRoutesInPathWithNamespace('src', 'Namespace');
-});
+}, [
+    'routeCollector' => '\\AnnotationRoute\\RouteCollector',
+    'cacheFile'      => 'path/to/cache.file',
+]);
 
 // Fetch method and URI from somewhere
 $httpMethod = $_SERVER['REQUEST_METHOD'];
@@ -35,3 +38,4 @@ switch ($routeInfo[0]) {
         break;
 }
 ```
+It is recommended to only use the AnnotationRouter with a cachedDispatcher since it is relatively expensive to parse the doc comments for route definitions.
