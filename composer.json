@@ -1,0 +1,27 @@
+{
+    "name": "rhn/router",
+    "type": "library",
+    "description": "Annotation based wrapper for nikic/fast-route",
+    "license": "MIT",
+
+    "require": {
+        "php": "^7.2",
+        "nikic/fast-route": "^1.3"
+    },
+
+    "require-dev": {
+        "phpunit/phpunit": "^7"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "AnnotationRoute\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\AnnotationRoute\\": "test/"
+        }
+    }
+}
