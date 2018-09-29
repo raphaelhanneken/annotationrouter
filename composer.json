@@ -1,5 +1,5 @@
 {
-    "name": "rhn/router",
+    "name": "rhn/annotationrouter",
     "type": "library",
     "description": "Annotation based wrapper for nikic/fast-route",
     "license": "MIT",

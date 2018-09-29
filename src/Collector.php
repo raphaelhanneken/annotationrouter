@@ -10,7 +10,7 @@ use ReflectionException;
 use ReflectionMethod;
 use SplFileInfo;
 
-class RouteCollector
+class Collector
 {
     /** @var string Pattern to match URIs within a DocComment */
     private const URI_PATTERN = '/(?<method>\bGET\b|\bPOST\b|\bDELETE\b|\bHEAD\b|\bPUT\b|\bUPDATE\b|\bPATCH\b)\s+(?<path>[\S]+)\s+(?<name>[A-z0-9_]*)/';
@@ -44,7 +44,7 @@ class RouteCollector
      * @param string $namespace   The namespace for the given path
      * @param string $filePostfix A file postfix to filter php files by
      *
-     * @return RouteCollector
+     * @return Collector
      * @throws ReflectionException
      */
     public function addRoutesInPathWithNamespace(string $path, string $namespace, string $filePostfix = ''): self
@@ -68,7 +68,7 @@ class RouteCollector
      * Import all routes from a given controller, by it's fully qualified class name
      *
      * @param string $fullyQualifiedClassName
-     * @return RouteCollector
+     * @return Collector
      * @throws ReflectionException
      */
     public function addRoutesForClass(string $fullyQualifiedClassName): self

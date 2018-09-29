@@ -2,7 +2,7 @@
 
 namespace Tests\AnnotationRoute;
 
-use AnnotationRoute\RouteCollector;
+use AnnotationRoute\Collector;
 use FastRoute\DataGenerator\GroupCountBased;
 use FastRoute\RouteParser\Std;
 use PHPUnit\Framework\TestCase;
@@ -13,16 +13,16 @@ use Tests\AnnotationRoute\Fixtures\UsersController;
  * Class RouteCollectorTest
  *
  * @package Tests\AnnotationRoute
- * @covers \AnnotationRoute\RouteCollector
+ * @covers \AnnotationRoute\Collector
  */
 class RouteCollectorTest extends TestCase
 {
-    /** @var RouteCollector */
+    /** @var Collector */
     private $routeCollector;
 
     public function setUp()
     {
-        $this->routeCollector = new RouteCollector(new Std(), new GroupCountBased());
+        $this->routeCollector = new Collector(new Std(), new GroupCountBased());
     }
 
     /**
