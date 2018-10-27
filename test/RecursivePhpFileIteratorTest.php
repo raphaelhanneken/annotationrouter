@@ -13,7 +13,10 @@ use PHPUnit\Framework\TestCase;
  */
 class RecursivePhpFileIteratorTest extends TestCase
 {
-    public function testFindsCorrectFilesWithPostfix()
+    /**
+     * @covers \AnnotationRoute\RecursivePhpFileIterator::__construct
+     */
+    public function testFindsCorrectFilesWithPostfix(): void
     {
         $files = $this->getFilenames(new RecursivePhpFileIterator(__DIR__ . '/Fixtures', 'Controller'));
 
@@ -23,7 +26,10 @@ class RecursivePhpFileIteratorTest extends TestCase
         $this->assertNotContains('Base.php', $files);
     }
 
-    public function testFindsCorrectFilesWithoutPostfix()
+    /**
+     * @covers \AnnotationRoute\RecursivePhpFileIterator::__construct
+     */
+    public function testFindsCorrectFilesWithoutPostfix(): void
     {
         $files = $this->getFilenames(new RecursivePhpFileIterator(__DIR__ . '/Fixtures'));
 
@@ -39,7 +45,7 @@ class RecursivePhpFileIteratorTest extends TestCase
      * @param RecursivePhpFileIterator $files
      * @return array
      */
-    private function getFilenames(RecursivePhpFileIterator $files)
+    private function getFilenames(RecursivePhpFileIterator $files): array
     {
         $filenames = [];
 

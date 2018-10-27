@@ -45,6 +45,7 @@ class Collector
      * @param string $filePostfix A file postfix to filter php files by
      *
      * @return Collector
+     * @throws InvalidArgumentException
      * @throws ReflectionException
      */
     public function addRoutesInPathWithNamespace(string $path, string $namespace, string $filePostfix = ''): self
