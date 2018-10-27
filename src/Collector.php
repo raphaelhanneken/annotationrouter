@@ -74,14 +74,11 @@ class Collector
      */
     public function addRoutesForClass(string $fullyQualifiedClassName): self
     {
-        try {
-            $publicMethods = (new ReflectionClass($fullyQualifiedClassName))
-                ->getMethods(ReflectionMethod::IS_PUBLIC);
+        $publicMethods = (new ReflectionClass($fullyQualifiedClassName))
+            ->getMethods(ReflectionMethod::IS_PUBLIC);
 
-            foreach ($publicMethods as $method) {
-                $this->registerRoutesForMethod($method);
-            }
-        } catch (ReflectionException $e) {
+        foreach ($publicMethods as $method) {
+            $this->registerRoutesForMethod($method);
         }
 
         return $this;
