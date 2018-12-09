@@ -148,6 +148,7 @@ class Collector
         if (substr($path, -1) !== '/') {
             $path .= '/';
         }
+
         return $path;
     }
 
@@ -162,7 +163,7 @@ class Collector
      */
     private function getFileNamespace(SplFileInfo $file, string $path, string $namespace): string
     {
-        list($tmpRoutePath, $tmpFilepath) = str_replace('/', '\\', [$path, ($file->getPath() . '\\')]);
+        [$tmpRoutePath, $tmpFilepath] = str_replace('/', '\\', [$path, $file->getPath() . '\\']);
         return str_replace($tmpRoutePath, $namespace, $tmpFilepath) . '\\';
     }
 }
